@@ -18,16 +18,14 @@ const (
 )
 
 func CalcSquare(sideLen float64, sidesNum SidesCount) float64 {
-	var area float64
-
-	switch {
-	case sidesNum == SidesTriangle:
-		area = sideLen * sideLen * math.Sqrt(3) / 4
-	case sidesNum == SidesSquare:
-		area = sideLen * sideLen
-	case sidesNum == SidesCircle:
-		area = sideLen * sideLen * math.Pi
+	switch sidesNum {
+	case SidesTriangle:
+		return sideLen * sideLen * math.Sqrt(3) / 4
+	case SidesSquare:
+		return sideLen * sideLen
+	case SidesCircle:
+		return sideLen * sideLen * math.Pi
+	default:
+		return 0
 	}
-
-	return area
 }
